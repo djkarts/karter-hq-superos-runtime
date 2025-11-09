@@ -17,5 +17,11 @@ jobs:
       - name: Run verification script
         run: |
           chmod +x runtime/verify.sh
-          ./runtime/verify.sh
+          ./runtime/verify.sh > superos_verification.log
+
+      - name: Upload verification log
+        uses: actions/upload-artifact@v3
+        with:
+          name: superos_verification_log
+          path: superos_verification.log
 
